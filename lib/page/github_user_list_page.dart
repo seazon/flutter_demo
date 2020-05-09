@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 import 'package:flutterdemo/model/github_user.dart';
 import 'package:flutterdemo/viewmodel/github_user_list_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class GithubUserListPage extends StatefulWidget {
   @override
@@ -10,13 +9,16 @@ class GithubUserListPage extends StatefulWidget {
 }
 
 class _UserListPageState extends State<GithubUserListPage> {
-  final TextEditingController _controller = TextEditingController();
+  TextEditingController _controller;
   GithubUserListViewModel vm;
 
   @override
   void initState() {
     super.initState();
-    Provider.of<GithubUserListViewModel>(context, listen: false).search("wcl");
+    String keyword = "wcl";
+    Provider.of<GithubUserListViewModel>(context, listen: false)
+        .search(keyword);
+    _controller = TextEditingController(text: keyword);
   }
 
   @override
@@ -40,7 +42,6 @@ class _UserListPageState extends State<GithubUserListPage> {
                   onSubmitted: (value) {
                     if (value.isNotEmpty) {
                       vm.search(value);
-                      _controller.clear();
                     }
                   },
                   style: TextStyle(color: Colors.white),
@@ -54,7 +55,11 @@ class _UserListPageState extends State<GithubUserListPage> {
                 offstage: !vm.isLoading,
                 child: CircularProgressIndicator(),
               ),
-              Expanded(child: _UserList(users: vm.users))
+              Expanded(
+                  child: RefreshIndicator(
+                onRefresh: vm.refresh,
+                child: _UserList(users: vm.users),
+              ))
             ])));
   }
 }
