@@ -16,8 +16,7 @@ class _UserListPageState extends State<GithubUserListPage> {
   @override
   void initState() {
     super.initState();
-    // you can uncomment this to get all batman movies when the page is loaded
-    //Provider.of<UserListViewModel>(context, listen: false).fetchMovies("batman");
+    Provider.of<GithubUserListViewModel>(context, listen: false).search("wcl");
   }
 
   @override
