@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:uni_links/uni_links.dart';
 
 import 'github_user_list_page.dart';
+import 'package:flutterdemo/page/tab_page.dart';
 import 'package:flutterdemo/viewmodel/github_user_list_viewmodel.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,7 +44,13 @@ class HomeState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           ListTile(
-            title: Text("1. Github user search"),
+            title: Text("1. Tab"),
+            onTap: () {
+              gotoTabPage();
+            },
+          ),
+          ListTile(
+            title: Text("2. MVVM & Http"),
             onTap: () {
               gotoGithubListPage();
             },
@@ -51,6 +58,10 @@ class HomeState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void gotoTabPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => TabPage()));
   }
 
   void gotoGithubListPage() {
