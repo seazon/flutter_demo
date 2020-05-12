@@ -14,8 +14,8 @@ class ImagePickerPage extends StatefulWidget {
 class ImagePickerState extends State<ImagePickerPage> {
   File _image;
 
-  Future getImage() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+  Future getImage(ImageSource source) async {
+    var image = await ImagePicker.pickImage(source: source);
 
     setState(() {
       _image = image;
@@ -32,12 +32,18 @@ class ImagePickerState extends State<ImagePickerPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Image Picker'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.image),
+            onPressed: () => getImage(ImageSource.gallery),
+          ),
+        ],
       ),
       body: Center(
         child: _image == null ? Text('No image selected.') : Image.file(_image),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
+        onPressed: () => getImage(ImageSource.camera),
         tooltip: 'Pick Image',
         child: Icon(Icons.add_a_photo),
       ),
