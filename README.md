@@ -17,6 +17,12 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Examples
 
+#### Environment
+example for running with prod environment
+```bash
+flutter run -t lib/main_prod.dart
+```
+
 #### MVVM
 example in Github User Search
 

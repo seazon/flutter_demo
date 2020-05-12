@@ -4,6 +4,7 @@ import 'package:flutterdemo/page/image_picker_page.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_links/uni_links.dart';
 
+import '../app_config.dart';
 import 'github_user_list_page.dart';
 import 'package:flutterdemo/page/tab_page.dart';
 import 'package:flutterdemo/viewmodel/github_user_list_viewmodel.dart';
@@ -38,9 +39,10 @@ class HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var config = AppConfig.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Home (${config.flavorName})"),
       ),
       body: Column(
         children: <Widget>[
