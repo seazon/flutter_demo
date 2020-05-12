@@ -31,7 +31,9 @@ example in Tab Layout
 
 #### `Deeps Links` / `Custom URL schemes`
 Test: [Android] adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "poc://flutter.demo/github_user?keyword=wcl"'
+
 Test: [iOS] /usr/bin/xcrun simctl openurl booted "poc://flutter.demo/github_user?keyword=wcl"
+
 Ref: https://pub.dev/packages/uni_links
 
 #### Image Picker

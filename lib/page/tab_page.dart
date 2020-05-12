@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/app/locator.dart';
 import 'package:flutterdemo/util/util_snackbar.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class TabPage extends StatefulWidget {
   @override
@@ -24,9 +26,11 @@ class TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    final DialogService _dialogService = locator<DialogService>();
     _tabController =
         TabController(vsync: this, initialIndex: 0, length: myTabs.length);
     _tabController.addListener(() {
+      _dialogService.showDialog(title: "tab tapped");
       print("tab tapped");
     });
   }

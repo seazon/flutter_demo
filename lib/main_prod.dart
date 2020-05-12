@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/page/home_page.dart';
 
+import 'app/locator.dart';
 import 'app_config.dart';
 import 'main.dart';
 
@@ -11,5 +12,6 @@ void main() {
     apiBaseUrl: 'https://prod-api.example.com/',
     child: new MyApp(),
   );
+  setupLocator();
   runApp(configuredApp);
 }
