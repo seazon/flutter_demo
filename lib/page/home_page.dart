@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/page/image_picker_page.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_links/uni_links.dart';
 
@@ -53,6 +54,13 @@ class HomeState extends State<HomePage> {
             title: Text("2. MVVM & Http"),
             onTap: () {
               gotoGithubListPage();
+            },
+          ),
+          ListTile(
+            title: Text("3. Image Picker"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ImagePickerPage()));
             },
           ),
         ],
