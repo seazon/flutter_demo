@@ -45,13 +45,13 @@ class HomeState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           ListTile(
-            title: Text("1. Tab"),
+            title: Text("1. Tab Layout"),
             onTap: () {
               gotoTabPage();
             },
           ),
           ListTile(
-            title: Text("2. MVVM & Http"),
+            title: Text("2. Github User Search"),
             onTap: () {
               gotoGithubListPage();
             },
