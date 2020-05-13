@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterdemo/page/home_page.dart';
 
 import 'app/locator.dart';
 import 'app_config.dart';

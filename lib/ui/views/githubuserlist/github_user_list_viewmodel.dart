@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutterdemo/model/github_user.dart';
 import 'package:flutterdemo/repository/user_repository.dart';
 
-class GithubUserListViewModel extends ChangeNotifier {
+import '../basic_viewmodel.dart';
+
+class GithubUserListViewModel extends BasicViewModel {
   GithubUserRepository repository = GithubUserRepository();
   List<GithubUserResultItem> users = List<GithubUserResultItem>();
   String keyword = "";
@@ -16,8 +16,12 @@ class GithubUserListViewModel extends ChangeNotifier {
     notifyListeners();
 
     final results = await repository.search(keyword);
-    users = results.items;
-    print(users);
+    if (results == null) {
+      print("search results = null");
+    } else {
+      users = results.items;
+      print(users);
+    }
     isLoading = false;
     notifyListeners();
   }

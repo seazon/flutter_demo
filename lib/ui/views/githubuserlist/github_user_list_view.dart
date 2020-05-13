@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/model/github_user.dart';
-import 'package:flutterdemo/viewmodel/github_user_list_viewmodel.dart';
-import 'package:provider/provider.dart';
+import 'package:stacked/stacked.dart';
 
-class GithubUserListPage extends StatefulWidget {
-  @override
-  _UserListPageState createState() => _UserListPageState();
-}
+import '../basic_view.dart';
+import 'github_user_list_viewmodel.dart';
 
-class _UserListPageState extends State<GithubUserListPage> {
-  TextEditingController _controller;
-  GithubUserListViewModel vm;
+class GithubUserListView extends BasicView<GithubUserListViewModel> {
+  TextEditingController _controller; // TODO should as a final
 
-  @override
-  void initState() {
-    super.initState();
+  void init(GithubUserListViewModel model) {
     String keyword = "wcl";
-    Provider.of<GithubUserListViewModel>(context, listen: false)
-        .search(keyword);
+//    model.search(keyword);
     _controller = TextEditingController(text: keyword);
   }
 
   @override
-  Widget build(BuildContext context) {
-    print("start build ");
-    vm = Provider.of<GithubUserListViewModel>(context);
+  Widget builder(
+      BuildContext context, GithubUserListViewModel model, Widget child) {
+    init(model); // TODO should put init method in right place
     return Scaffold(
         appBar: AppBar(title: Text("Search Github User")),
         body: Container(
@@ -41,7 +34,7 @@ class _UserListPageState extends State<GithubUserListPage> {
                   controller: _controller,
                   onSubmitted: (value) {
                     if (value.isNotEmpty) {
-                      vm.search(value);
+                      model.search(value);
                     }
                   },
                   style: TextStyle(color: Colors.white),
@@ -52,16 +45,20 @@ class _UserListPageState extends State<GithubUserListPage> {
                 ),
               ),
               Offstage(
-                offstage: !vm.isLoading,
+                offstage: !model.isLoading,
                 child: CircularProgressIndicator(),
               ),
               Expanded(
                   child: RefreshIndicator(
-                onRefresh: vm.refresh,
-                child: _UserList(users: vm.users),
+                onRefresh: model.refresh,
+                child: _UserList(users: model.users),
               ))
             ])));
   }
+
+  @override
+  GithubUserListViewModel viewModelBuilder(BuildContext context) =>
+      GithubUserListViewModel();
 }
 
 class _UserList extends StatelessWidget {

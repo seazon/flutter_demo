@@ -1,8 +1,17 @@
-import 'package:stacked/stacked.dart';
+import 'package:flutterdemo/app/router.gr.dart';
 
-class HomeViewModel extends BaseViewModel {
-  String _title = "Home View";
+import '../basic_viewmodel.dart';
 
-  String get title => _title;
+class HomeViewModel extends BasicViewModel {
+  Future navigateToGithubUserList() async {
+    await navigationService.navigateTo(Routes.githubUserListViewRoute);
+  }
 
+  Future navigateToImagePicker() async {
+    await navigationService.navigateTo(Routes.imagePickerViewRoute);
+  }
+
+  Future navigateToTab() async {
+    await navigationService.navigateTo(Routes.tabViewRoute);
+  }
 }
