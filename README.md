@@ -16,9 +16,6 @@ all pages apply with MVVM
 #### Router / Navigation
 apply with lib `stacked_services` & `auto_route`
 
-#### Tab Layout
-example in Tab Layout
-
 #### `Deeps Links` / `Custom URL schemes`
 Test: [Android] adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "poc://flutter.demo/github_user?keyword=wcl"'
 
@@ -26,8 +23,10 @@ Test: [iOS] /usr/bin/xcrun simctl openurl booted "poc://flutter.demo/github_user
 
 Ref: https://pub.dev/packages/uni_links
 
-#### Image Picker
-example in Image Picker
+#### i18n
+install IDE plugin `flutter_intl`
+Android Studio ref: https://plugins.jetbrains.com/plugin/13666-flutter-intl
+VS Code ref: https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl
 
 ## iOS Part
 
