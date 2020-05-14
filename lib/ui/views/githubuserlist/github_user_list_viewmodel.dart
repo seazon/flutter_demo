@@ -8,6 +8,7 @@ class GithubUserListViewModel extends BasicViewModel {
   List<GithubUserResultItem> users = List<GithubUserResultItem>();
   String keyword = "";
   bool isLoading = false;
+  int counter = 0;
 
   Future<void> search(String keyword) async {
     this.keyword = keyword;
@@ -26,6 +27,7 @@ class GithubUserListViewModel extends BasicViewModel {
       repository.saveUsers(users);
       print(users);
     }
+    counter = await repository.incrementCounter();
     isLoading = false;
     notifyListeners();
   }

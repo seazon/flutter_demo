@@ -18,7 +18,7 @@ class GithubUserListView extends BasicView<GithubUserListViewModel> {
       BuildContext context, GithubUserListViewModel model, Widget child) {
     init(model); // TODO should put init method in right place
     return Scaffold(
-        appBar: AppBar(title: Text("Search Github User")),
+        appBar: AppBar(title: Text("Search Github User: ${model.counter}")),
         body: Container(
             padding: EdgeInsets.all(10),
             width: MediaQuery.of(context).size.width,

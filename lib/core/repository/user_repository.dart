@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutterdemo/core/database/database_helper.dart';
 import 'package:flutterdemo/core/model/github_user.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GithubUserRepository {
   Future<GithubUserResult> search(String keyword) async {
@@ -24,5 +25,12 @@ class GithubUserRepository {
   Future<void> saveUsers(List<GithubUserResultItem> users) async {
     var db = new DatabaseHelper();
     db.saveUsers(users);
+  }
+
+  Future<int> incrementCounter() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    int counter = (sp.getInt("counter") ?? 0) + 1;
+    await sp.setInt("counter", counter);
+    return counter;
   }
 }
