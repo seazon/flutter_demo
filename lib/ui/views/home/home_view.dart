@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/generated/l10n.dart';
 import 'package:uni_links/uni_links.dart';
 
 import '../../../app_config.dart';
@@ -15,7 +16,7 @@ class HomeView extends BasicView<HomeViewModel> {
     handleDeepLink(model);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home (${config.flavorName})"),
+        title: Text("${S.of(context).home_title} (${config.flavorName})"),
       ),
       body: Column(
         children: <Widget>[
