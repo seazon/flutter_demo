@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterdemo/model/github_user.dart';
-import 'package:stacked/stacked.dart';
+import 'package:flutterdemo/core/model/github_user.dart';
 
 import '../basic_view.dart';
 import 'github_user_list_viewmodel.dart';

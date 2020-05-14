@@ -1,5 +1,5 @@
-import 'package:flutterdemo/model/github_user.dart';
-import 'package:flutterdemo/repository/user_repository.dart';
+import 'package:flutterdemo/core/model/github_user.dart';
+import 'package:flutterdemo/core/repository/user_repository.dart';
 
 import '../basic_viewmodel.dart';
 
@@ -18,8 +18,12 @@ class GithubUserListViewModel extends BasicViewModel {
     final results = await repository.search(keyword);
     if (results == null) {
       print("search results = null");
+      print("get from database");
+      users = await repository.getAllUsers();
+      print(users);
     } else {
       users = results.items;
+      repository.saveUsers(users);
       print(users);
     }
     isLoading = false;
