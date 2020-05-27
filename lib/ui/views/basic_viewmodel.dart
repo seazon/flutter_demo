@@ -3,7 +3,6 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class BasicViewModel extends BaseViewModel {
-//  final AppConfig config = locator<AppConfig>();
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService navigationService = locator<NavigationService>();
 
