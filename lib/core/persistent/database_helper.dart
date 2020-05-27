@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 
-/// TODO here is the implementation of a specific database framework, we can replace it with a different framework
+/// This is the implementation of a specific database framework, we can replace it with a different framework
 class DatabaseHelper {
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
 
@@ -41,7 +41,7 @@ class DatabaseHelper {
     return await dbClient.query("User", columns: ['id', 'login', 'avatar_url']);
   }
 
-  //insertion
+  /// insertion
   Future<int> saveUser(GithubUserResultItem user) async {
     var dbClient = await db;
     int res = await dbClient.insert("User", user.toJson());
@@ -58,7 +58,7 @@ class DatabaseHelper {
     return await batch.commit();
   }
 
-  //deletion
+  /// deletion
   Future<int> deleteUser(GithubUserResultItem user) async {
     var dbClient = await db;
     int res = await dbClient.delete("User");

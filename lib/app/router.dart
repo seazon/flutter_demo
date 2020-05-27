@@ -5,6 +5,7 @@ import 'package:flutterdemo/ui/views/imagepicker/image_picker_view.dart';
 import 'package:flutterdemo/ui/views/tab/tab_view.dart';
 
 @MaterialAutoRouter()
+// Run `flutter pub run build_runner build` to generate router class when changed
 class $Router {
   @initial
   HomeView homeViewRoute;
@@ -12,5 +13,3 @@ class $Router {
   ImagePickerView imagePickerViewRoute;
   GithubUserListView githubUserListViewRoute;
 }
-
-// `flutter pub run build_runner build` to generate router class
