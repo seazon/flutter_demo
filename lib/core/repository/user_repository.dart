@@ -1,19 +1,14 @@
-import 'dart:convert';
-import 'dart:io';
+import 'package:flutterdemo/app/locator.dart';
+import 'package:flutterdemo/core/api/api_service.dart';
 import 'package:flutterdemo/core/database/database_helper.dart';
 import 'package:flutterdemo/core/model/github_user.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GithubUserRepository {
+  final ApiService _apiService = locator<ApiService>();
+
   Future<GithubUserResult> search(String keyword) async {
-    http.Response response =
-        await http.get("https://api.github.com/search/users?q=$keyword&page=1");
-    if (response.statusCode != HttpStatus.ok) {
-      return GithubUserResult.fromJson(jsonDecode(response.body));
-    } else {
-      return null;
-    }
+    return _apiService.search(keyword);
   }
 
   Future<List<GithubUserResultItem>> getAllUsers() async {
