@@ -43,6 +43,8 @@ dependencies:
   # localizations
   flutter_localizations:
     sdk: flutter
+  # webview
+  webview_flutter: ^0.3.22+1
   # others
   rxdart: ^0.24.0
   path_provider: ^0.4.0

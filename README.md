@@ -34,3 +34,4 @@ Some examples need configuration or coding at platform side, miss iOS part curre
 
 - `Deeps Links` / `Custom URL schemes`: https://pub.dev/packages/uni_links
 - Image Picker: https://pub.dev/packages/image_picker
+- WebView: https://pub.dev/packages/webview_flutter

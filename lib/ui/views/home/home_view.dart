@@ -38,6 +38,12 @@ class HomeView extends BasicView<HomeViewModel> {
               model.navigateToImagePicker();
             },
           ),
+          ListTile(
+            title: Text("4. WebView"),
+            onTap: () {
+              model.navigateToWebView("google", "https://google.com");
+            },
+          ),
         ],
       ),
     );

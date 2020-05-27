@@ -14,4 +14,11 @@ class HomeViewModel extends BasicViewModel {
   Future navigateToTab() async {
     await navigationService.navigateTo(Routes.tabViewRoute);
   }
+
+  Future navigateToWebView(String title, String url) async {
+    await navigationService.navigateTo(Routes.webViewView, arguments: {
+      "title": title,
+      "url": url,
+    });
+  }
 }
