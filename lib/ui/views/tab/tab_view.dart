@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/ui/views/tab/tab_layout_widget.dart';
 import 'package:flutterdemo/ui/views/tab/tab_viewmodel.dart';
-import 'package:flutterdemo/util/util_snackbar.dart';
 
 import '../basic_view.dart';
 
@@ -16,7 +15,7 @@ class TabView extends BasicView<TabViewModel> {
               builder: (context) => IconButton(
                 icon: Icon(Icons.search),
                 onPressed: () {
-                  SnackBarUtil.show(context, "search menu tapped");
+                  model.showSnackBar(message: "search menu tapped");
                 },
               ),
             ),

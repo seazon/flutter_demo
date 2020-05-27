@@ -8,4 +8,7 @@ abstract class ThirdPartyServicesModule {
 
   @lazySingleton
   DialogService get dialogService;
+
+  @lazySingleton
+  SnackbarService get snackbarService;
 }
