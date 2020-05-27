@@ -56,7 +56,7 @@ class HomeView extends BasicView<HomeViewModel> {
 
   void handleDeepLink(HomeViewModel model) {
     getInitialUri().then((Uri url) {
-      print('URL received: $url');
+      d('URL received: $url');
       if (url != null && url.scheme == 'poc') {
         map.addAll(url.queryParameters);
         if (url.path == '/github_user') {

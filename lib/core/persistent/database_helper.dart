@@ -1,12 +1,13 @@
 import 'dart:io';
 import 'package:flutterdemo/core/model/github_user.dart';
+import 'package:flutterdemo/util/log_plugin.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 
 /// This is the implementation of a specific database framework, we can replace it with a different framework
-class DatabaseHelper {
+class DatabaseHelper with LogPlugin {
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
 
   factory DatabaseHelper() => _instance;
@@ -33,7 +34,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     await db.execute(
         "CREATE TABLE User(id INTEGER PRIMARY KEY, login TEXT, avatar_url TEXT)");
-    print("Table is created");
+    d("Table is created");
   }
 
   Future<List<Map<String, dynamic>>> getAllUsers() async {

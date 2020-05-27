@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/ui/views/tab/tab_viewmodel.dart';
+import 'package:flutterdemo/util/log_plugin.dart';
 
 class TabLayout extends StatefulWidget {
   final TabViewModel model;
@@ -11,7 +12,7 @@ class TabLayout extends StatefulWidget {
 }
 
 class __TabLayoutState extends State<TabLayout>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, LogPlugin {
   TabController _tabController;
   final TabViewModel model;
 
@@ -38,7 +39,7 @@ class __TabLayoutState extends State<TabLayout>
     _tabController.addListener(() {
 //      var a  = _tabController.index;
 //      model.showDialog(title: "alert!", description: "tab tapped");
-      print("tab tapped");
+      d("tab tapped");
     });
   }
 

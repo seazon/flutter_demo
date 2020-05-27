@@ -31,14 +31,14 @@ class WebViewView extends BasicView<WebViewViewModel> {
           _toasterJavascriptChannel(context),
         ].toSet(),
         navigationDelegate: (NavigationRequest request) {
-          print('allowing navigation to $request');
+          d('allowing navigation to $request');
           return NavigationDecision.navigate;
         },
         onPageStarted: (String url) {
-          print('Page started loading: $url');
+          d('Page started loading: $url');
         },
         onPageFinished: (String url) {
-          print('Page finished loading: $url');
+          d('Page finished loading: $url');
         },
         gestureNavigationEnabled: true,
       ),

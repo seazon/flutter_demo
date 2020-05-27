@@ -18,14 +18,14 @@ class GithubUserListViewModel extends BasicViewModel {
 
     final results = await repository.search(keyword);
     if (results == null) {
-      print("search results = null");
-      print("get from database");
+      d("search results = null");
+      d("get from database");
       users = await repository.getAllUsers();
-      print(users);
+      d(users);
     } else {
       users = results.items;
       repository.saveUsers(users);
-      print(users);
+      d(users);
     }
     counter = await repository.incrementCounter();
     isLoading = false;
