@@ -8,7 +8,13 @@ class HomeViewModel extends BasicViewModel {
   }
 
   Future navigateToImagePicker() async {
-    await navigationService.navigateTo(Routes.imagePickerViewRoute);
+    await navigationService
+        .navigateTo(Routes.imagePickerViewRoute)
+        .then((value) {
+      if (value != null) {
+        showDialog(title: "get image", description: value);
+      }
+    });
   }
 
   Future navigateToTab() async {
