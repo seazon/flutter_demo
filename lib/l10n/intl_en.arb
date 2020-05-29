@@ -1,3 +1,8 @@
 {
-  "home_title": "Home"
+  "home_title": "Home",
+  "common_alert": "Alert",
+  "common_cancel": "Cancel",
+  "common_ok": "Ok",
+  "location_permission_not_grant_description": "Permisstion not grant, do you want to app setting to grant it?",
+  "location_permission_go_to_setting": "Goto setting"
 }

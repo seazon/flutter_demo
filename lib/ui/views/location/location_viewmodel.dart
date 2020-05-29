@@ -1,3 +1,4 @@
+import 'package:flutterdemo/ui/views/location/location_navigator.dart';
 import 'package:flutterdemo/util/location_permissions_plugin.dart';
 import 'package:flutterdemo/util/location_plugin.dart';
 import 'package:location/location.dart';
@@ -10,6 +11,10 @@ class LocationViewModel extends BasicViewModel
 
   LocationData get locationData => _locationData;
 
+  final LocationNavigator navigator;
+
+  LocationViewModel({this.navigator});
+
   void requestLocation() async {
     try {
       _locationData = await location();
@@ -18,17 +23,7 @@ class LocationViewModel extends BasicViewModel
         notifyListeners();
       }
     } catch (e) {
-      // TODO move i18n
-      showDialog(
-        title: "Error",
-        description:
-            "Permisstion not grant, do you want to app setting to grant it?",
-        cancelTitle: "cancel",
-        buttonTitle: "Goto settings",
-        onTap: () {
-          openAppSettings();
-        },
-      );
+      navigator.showErrorDialog();
     }
   }
 }
