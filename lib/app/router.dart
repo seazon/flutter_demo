@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route_annotations.dart';
 import 'package:flutterdemo/ui/views/githubuserlist/github_user_list_view.dart';
 import 'package:flutterdemo/ui/views/home/home_view.dart';
 import 'package:flutterdemo/ui/views/imagepicker/image_picker_view.dart';
+import 'package:flutterdemo/ui/views/location/location_view.dart';
 import 'package:flutterdemo/ui/views/tab/tab_view.dart';
 import 'package:flutterdemo/ui/views/webview/webview_view.dart';
 
@@ -14,4 +15,5 @@ class $Router {
   ImagePickerView imagePickerViewRoute;
   GithubUserListView githubUserListViewRoute;
   WebViewView webViewView;
+  LocationView locationView;
 }

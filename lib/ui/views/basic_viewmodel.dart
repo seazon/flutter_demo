@@ -20,8 +20,8 @@ class BasicViewModel extends BaseViewModel with LogPlugin {
         title: title,
         description: description,
         cancelTitle: cancelTitle,
-        buttonTitle: buttonTitle)
-        .whenComplete(() => {});
+        buttonTitle: buttonTitle
+    );
   }
 
   void showSnackBar({

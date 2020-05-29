@@ -45,6 +45,9 @@ dependencies:
     sdk: flutter
   # webview
   webview_flutter: ^0.3.22+1
+  # location
+  location: ^3.0.2
+  location_permissions: ^2.0.5
   # others
   rxdart: ^0.24.0
   path_provider: ^0.4.0

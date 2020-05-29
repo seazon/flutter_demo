@@ -44,6 +44,12 @@ class HomeView extends BasicView<HomeViewModel> {
               model.navigateToWebView("google", "https://google.com");
             },
           ),
+          ListTile(
+            title: Text("5. Location"),
+            onTap: () {
+              model.navigateToLocation();
+            },
+          ),
         ],
       ),
     );

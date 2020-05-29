@@ -27,4 +27,7 @@ class HomeViewModel extends BasicViewModel {
       "url": url,
     });
   }
+  Future navigateToLocation() async {
+    await navigationService.navigateTo(Routes.locationView);
+  }
 }
