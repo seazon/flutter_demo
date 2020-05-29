@@ -17,16 +17,22 @@ all pages apply with MVVM
 apply with lib `stacked_services` & `auto_route`
 
 #### `Deeps Links` / `Custom URL schemes`
-Test: [Android] adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "poc://flutter.demo/github_user?keyword=wcl"'
+Test: [Android]
+```bash
+adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "poc://flutter.demo/github_user?keyword=wcl"'
+```
 
-Test: [iOS] /usr/bin/xcrun simctl openurl booted "poc://flutter.demo/github_user?keyword=wcl"
+Test: [iOS]
+```bash
+/usr/bin/xcrun simctl openurl booted "poc://flutter.demo/github_user?keyword=wcl"
+```
 
 Ref: https://pub.dev/packages/uni_links
 
 #### i18n
 install IDE plugin `flutter_intl`
-Android Studio ref: https://plugins.jetbrains.com/plugin/13666-flutter-intl
-VS Code ref: https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl
+- Android Studio ref: https://plugins.jetbrains.com/plugin/13666-flutter-intl
+- VS Code ref: https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl
 
 ## iOS Part
 

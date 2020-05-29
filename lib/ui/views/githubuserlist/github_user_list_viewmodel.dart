@@ -34,6 +34,5 @@ class GithubUserListViewModel extends BasicViewModel {
 
   Future<void> refresh() async {
     search(keyword);
-    return;
   }
 }
