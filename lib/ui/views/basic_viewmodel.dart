@@ -9,19 +9,24 @@ class BasicViewModel extends BaseViewModel with LogPlugin {
   final NavigationService navigationService = locator<NavigationService>();
   final SnackbarService _snackbarService = locator<SnackbarService>();
 
-  Future<DialogResponse> showDialog({
+  void showDialog({
     String title,
     String description,
-    String cancelTitle,
+    String cancelTitle = "",
     String buttonTitle = 'Ok',
-  }) {
-    return _dialogService
-        .showDialog(
+    Function onTap,
+    Function onCancelTap,
+  }) async {
+    DialogResponse response = await _dialogService.showDialog(
         title: title,
         description: description,
         cancelTitle: cancelTitle,
-        buttonTitle: buttonTitle
-    );
+        buttonTitle: buttonTitle);
+    if (response.confirmed) {
+      onTap?.call();
+    } else {
+      onCancelTap?.call();
+    }
   }
 
   void showSnackBar({
@@ -34,7 +39,8 @@ class BasicViewModel extends BaseViewModel with LogPlugin {
     bool isDissmissible = true,
     Duration duration = const Duration(seconds: 3),
   }) {
-    _snackbarService.showSnackbar(title: title,
+    _snackbarService.showSnackbar(
+        title: title,
         message: message,
         iconData: iconData,
         onTap: onTap,

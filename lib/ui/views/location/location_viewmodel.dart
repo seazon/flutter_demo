@@ -1,7 +1,6 @@
 import 'package:flutterdemo/util/location_permissions_plugin.dart';
 import 'package:flutterdemo/util/location_plugin.dart';
 import 'package:location/location.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 import '../basic_viewmodel.dart';
 
@@ -20,17 +19,16 @@ class LocationViewModel extends BasicViewModel
       }
     } catch (e) {
       // TODO move i18n
-      // TODO dialog easy handler
-      DialogResponse response = await showDialog(
+      showDialog(
         title: "Error",
         description:
             "Permisstion not grant, do you want to app setting to grant it?",
         cancelTitle: "cancel",
         buttonTitle: "Goto settings",
+        onTap: () {
+          openAppSettings();
+        },
       );
-      if (response.confirmed) {
-        openAppSettings();
-      }
     }
   }
 }
